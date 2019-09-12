@@ -9,27 +9,33 @@
     <link rel="stylesheet" href="css/local.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="header">
-        <div class="clear" id="clearButton">
-          <i class="fa fa-refresh button"></i>
-        </div>
+    <div id="container">
+      <div id="header">
+        <button class="clear" id="clearButton">Clear</button>
         <div id="date"></div>
       </div>
-      <div class="content">
+      <div id="content">
         <ul id="list">
-          <li class="item">
-            <i class="far fa-square button" job="complete" id="0"></i>
-            <i class="far fa-check-square button" job="complete" id="hover"></i>
-            <i class="fas fa-check button" id="checked"></i>
-            <p class="text">Drink Coffee</p>
-            <i class="fas fa-trash button" job="delete" id="0"></i>
+          <li class="item imcomplete" id="0">
+            <span class="check-box" job="check-item">
+              <i class="far fa-square"></i>
+              <i class="far fa-check-square"></i>
+            </span>
+            <span class="text">Drink Coffee</span>
+            <i class="far fa-trash-alt" job="delete"></i>
+          </li>
+          <li class="item complete" id="1">
+            <span class="check-box" job="check-item">
+              <i class="fas fa-check"></i>
+            </span>
+            <span class="text">Drink tea</span>
+            <i class="far fa-trash-alt" job="delete"></i>
           </li>
         </ul>
       </div>
-      <div class="add-to-do">
-        <i class="fas fa-plus button"></i>
+      <div class="add-todo">
         <input type="text" id="input" placeholder="Add a to-do" />
+        <i class="fas fa-plus button" id="plus-button"></i>
       </div>
     </div>
     <script src="main.js"></script>
