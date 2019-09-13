@@ -112,6 +112,10 @@ function addNewTodo() {
   }
   input.value = "";
 }
+
+addToDo("Drink Coffee", "2", false);
+addToDo("Drink tea", "3", true);
+
 //---------------------------------------------
 
 // complete to do

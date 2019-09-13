@@ -86,10 +86,6 @@ i.fa-trash-alt {
 i.fa-trash-alt:hover {
   color: red
 }
-span.check-box{
-  width: 19px;
-  height: 19px;
-}
 .check-box:hover .fa-square,
 .check-box .fa-check-square {
   display: none;
