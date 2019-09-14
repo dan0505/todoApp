@@ -6,6 +6,7 @@ $(document).ready(function() {
   const input = $("#todo-input");
   const addButton = $("#add-button");
 
+  const today = new Date();
   // variables
   let todoList = new Object();
   let id = 0;
@@ -36,14 +37,16 @@ $(document).ready(function() {
     day: "numeric",
     year: "numeric"
   };
-  const today = new Date();
+
+  console.log(today);
   dateDisplay.text(today.toLocaleDateString("en-GB", options));
 
   // add to do function
-  function addToDo(toDo, done = false) {
+  function addToDo(toDo, done = false, dueDate = today) {
     todoList[id] = {
       name: toDo,
-      done: done
+      done: done,
+      dueDate: dueDate
     };
     // creat the item li
     const liItem = $("<li></li>");
@@ -88,7 +91,6 @@ $(document).ready(function() {
     const idToDelete = $(this)
       .siblings("input")
       .attr("id");
-    console.log(idToDelete);
     delete todoList[idToDelete];
     localStorage.setItem("TODO", JSON.stringify(todoList));
     $(this)
@@ -96,37 +98,50 @@ $(document).ready(function() {
       .remove();
   });
 
+  // tougle and save complete status
   $("ul").on("click", "input[type=checkbox]", function() {
     $(this).prop("checked", $(this).prop("checked"));
     todoList[$(this).attr("id")].done = $(this).prop("checked");
     localStorage.setItem("TODO", JSON.stringify(todoList));
   });
 
-  //---------------------------------------------
+  // modidy list
+  $("ul").on("click", "i.fa-pencil", function() {
+    const idToModify = $(this)
+      .siblings("input")
+      .attr("id");
+    console.log(idToModify);
+    const origText = $(`label[for="${idToModify}"]`).text();
+    $(`label[for="${idToModify}"]`)
+      .siblings("i.fa-pencil")
+      .remove();
+    const inputElement = $(`<input type="text" class="modify"></input>`);
+    $(`label[for="${idToModify}"]`).replaceWith(
+      `<input type="text" class="modify" value="${origText}"></input>
+       <button type="button" class="modify">
+         <i class="fa fa-check" aria-hidden="true" ></i>
+         Update
+       </button>`
+    );
+  });
 
-  //   // complete to do
-  //   function completeToDo(element) {
-  //     console.log(element);
-  //     element.parentNode.classList.toggle("complete");
-  //     element.parentNode.classList.toggle("imcomplete");
-
-  //     todoList[element.id].done = todoList[element.id].done ? false : true;
-  //   }
-
-  //   // target the items created dynamically
-
-  //   list.addEventListener("click", function(event) {
-  //     const element = event.target; // return the clicked element inside list
-  //     console.log(element);
-  //     const elementJob = element.parentNode.attributes.job.value; // complete or delete
-
-  //     if (elementJob == "check-item") {
-  //       completeToDo(element);
-  //     } else if (elementJob == "delete") {
-  //       removeToDo(element);
-  //     }
-
-  //     // add item to localstorage ( this code must be added where the todoList array is updated)
-  //     localStorage.setItem("TODO", JSON.stringify(todoList));
-  //   });
+  $("ul").on("click", "button.modify", function() {
+    const newValue = $(this)
+      .siblings("input[type=text]")
+      .val();
+    console.log(newValue);
+    const thisID = $(this)
+      .siblings("input[type=checkbox]")
+      .attr("id");
+    $(this).before($(`<label for="${thisID}">${newValue}</label>`));
+    $(this)
+      .parent()
+      .append($('<i class="fa fa-pencil" aria-hidden="true"></i>'));
+    $(this)
+      .siblings("input[type=text]")
+      .remove();
+    $(this).remove();
+    todoList[thisID].name = newValue;
+    localStorage.setItem("TODO", JSON.stringify(todoList));
+  });
 });

@@ -155,7 +155,7 @@ input[type=checkbox]:checked + label{
   text-decoration: line-through;
 }
 
-input[type=checkbox] ~ i {
+input[type=checkbox] ~ i:not(.fa-check) {
   float: right;
   margin-left: 0.5em;
   background-oc-webkit-transition-duration: var(--animation-duration); /* Safari */
@@ -191,4 +191,20 @@ input[type=checkbox]:checked:disabled + label:before {
   transform: scale(1);
   background-color: #bfb;
   border-color: #bfb;
+}
+
+input.modify {
+  margin-left: 1.8em;
+  font-size: var(--font-size);
+  border:0.1em solid grey;
+  height: 20px;
+}
+button.modify{
+  /* background-color: white; */
+  border: 0.1 solid grey;
+  height: 25px;
+}
+i.fa-check {
+  margin-left: 0.5em;
+  color: green
 }
