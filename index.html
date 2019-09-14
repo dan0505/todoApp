@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>todo</title>
-    <link rel="stylesheet" href="css/fontawesome-free-5.10.2-web/css/all.css" />
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.css" />
     <link rel="stylesheet" href="css/local.css" />
+    <script src="js/jquery-3.4.1.min.js"></script>
   </head>
   <body>
     <div id="container">
@@ -15,29 +16,32 @@
         <div id="date"></div>
       </div>
       <div id="content">
-        <ul id="list">
-          <li class="item imcomplete" id="0">
-            <span class="check-box" job="check-item">
-              <i class="far fa-square"></i>
-              <i class="far fa-check-square"></i>
-            </span>
-            <span class="text">Drink Coffee</span>
-            <i class="far fa-trash-alt" job="delete"></i>
+        <ul id="todo-list">
+          <!-- <li>
+            <input type="checkbox" id="fruit1" name="fruit-1" value="Apple" />
+            <label for="fruit1">Apple</label>
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
           </li>
-          <li class="item complete" id="1">
-            <span class="check-box" job="check-item">
-              <i class="fas fa-check"></i>
-            </span>
-            <span class="text">Drink tea</span>
-            <i class="far fa-trash-alt" job="delete"></i>
-          </li>
+          <li>
+            <input
+              type="checkbox"
+              id="fruit2"
+              name="fruit-1"
+              value="Drink tea"
+              checked
+            />
+            <label for="fruit2">Drink tea</label>
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+          </li> -->
         </ul>
       </div>
       <div class="add-todo">
-        <input type="text" id="input" placeholder="Add a to-do" />
-        <i class="fas fa-plus button" id="plus-button"></i>
+        <input type="text" id="todo-input" placeholder="Add a to-do" />
+        <i class="fa fa-plus" aria-hidden="true" id="add-button"></i>
       </div>
     </div>
-    <script src="main.js"></script>
+    <script src="/js/main.js"></script>
   </body>
 </html>
