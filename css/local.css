@@ -227,6 +227,7 @@ i.fa-check {
     background-color: lightblue;
   }
   #container {
+    height: 500px;
     position: fixed;
   }
 }
