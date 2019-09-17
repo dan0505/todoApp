@@ -3,7 +3,7 @@
   --blue: #00b;
   --app-width: 380px;
   --background-color: rgba(0, 0, 0, 0.1);
-  --body-font: "Arial Black", sans-serif;
+  --body-font: "Arial Verdana", Sans-serif;
   --content-height: 350px;
   --font-size: font-size: 1rem;
   --input-color: #4162f6;
@@ -102,12 +102,15 @@ li.complete span.text {
 }
 .add-todo i{
   float: right;
+  font-size: 28px;
 }
 
 .add-todo input {
   width: 310px;
   background-color: transparent;
   border: none;
+  line-height: 25px;
+  font-size: 20px;
 }
 
 
