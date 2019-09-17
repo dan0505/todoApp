@@ -15,10 +15,20 @@ body {
   font-family: var(--body-font);
 }
 
-#container {
+/* #container {
   max-width: var(--app-width);
   margin: 10px auto;
   box-shadow: 5px 10px 8px #888888;
+} */
+
+#container{
+  min-width: 300px;
+  max-width: 400px;
+  height: 600px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #header {
@@ -210,4 +220,13 @@ button.modify{
 i.fa-check {
   margin-left: 0.5em;
   color: green
+}
+
+@media only screen and (max-width: 500px){
+  body {
+    background-color: lightblue;
+  }
+  #container {
+    position: fixed;
+  }
 }
