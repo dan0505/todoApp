@@ -123,13 +123,24 @@ $(document).ready(function() {
          Update
        </button>`
     );
+    console.log($("input.modify"));
+  });
+
+  $("ul").on("blur", "input.modify", function() {
+    $("button.modify").trigger("click");
+  });
+
+  $("ul").on("keypress", "input.modify", function() {
+    if (event.keyCode == 13) {
+      $("button.modify").trigger("click");
+    }
   });
 
   $("ul").on("click", "button.modify", function() {
+    console.log(this);
     const newValue = $(this)
       .siblings("input[type=text]")
       .val();
-    console.log(newValue);
     const thisID = $(this)
       .siblings("input[type=checkbox]")
       .attr("id");
