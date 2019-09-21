@@ -78,10 +78,9 @@ li.complete span.text {
   text-decoration: line-through;
 }
 div.buttons {
-  z-index: 10;
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 2em;
+  right: 1.5em;
 }
 #clearButton {
   margin: 20px auto auto 20px;
@@ -218,6 +217,7 @@ a {
   #container {
     width: 100vw;
     height: calc(100vh - 20px);
+    /* height: 60vh; */
     display: grid;
     grid-template-areas:
       "header"
