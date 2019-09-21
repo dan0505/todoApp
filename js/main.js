@@ -26,8 +26,10 @@ $(document).ready(function() {
 
   // clear the local storage
   clearButton.click(function() {
-    localStorage.clear();
-    location.reload();
+    if (confirm("Confirm to clear all memory!")) {
+      localStorage.clear();
+      location.reload();
+    }
   });
 
   // Show todays date
@@ -82,24 +84,24 @@ $(document).ready(function() {
   // });
   // $(addButton).on("click", )
 
-  tryAddButton.click(function () {
+  tryAddButton.click(function() {
     contentElement.append(
       `<form id="last-todo-form">
       <input type="text" id="todo-input" name="todo" value="new-todo" placeholder="Add a to-do" />
       <button type="submit"><i class="fa fa-check" aria-hidden="true" ></i>
       Update</button>
     </form>`
-    )
-  })
+    );
+  });
 
-  $(document).on("submit", "#last-todo-form", function () {
-    console.log("submitted!")
+  $(document).on("submit", "#last-todo-form", function() {
+    console.log("submitted!");
     // do your things
     const toDo = $("#todo-input").val();
-    console.log(toDo)
+    console.log(toDo);
     // if the input isn't empty
     if (toDo) {
-      console.log("add", toDo)
+      console.log("add", toDo);
       addToDo(toDo);
     }
     $("#last-todo-form").remove();
