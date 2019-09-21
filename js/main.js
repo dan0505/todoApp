@@ -43,13 +43,7 @@ $(document).ready(function() {
   console.log(today);
   dateDisplay.text(today.toLocaleDateString("en-GB", options));
 
-  // add to do function
-  function addToDo(toDo, done = false, dueDate = today) {
-    todoList[id] = {
-      name: toDo,
-      done: done,
-      dueDate: dueDate
-    };
+  function createElement(toDo, id, done) {
     // creat the item li
     const liItem = $("<li></li>");
     const checkboxInput = $('<input type="checkbox"></input>');
@@ -64,12 +58,24 @@ $(document).ready(function() {
 
     // append all children
     liItem.append(checkboxInput, checkboxLabel, itemModify, itemTrash);
+    return liItem
+  }
+
+  // add to do function
+  function addToDo(toDo, done = false, dueDate = today) {
+    todoList[id] = {
+      name: toDo,
+      done: done,
+      dueDate: dueDate
+    };
     // add item to todo list display
-    list.append(liItem);
+    list.append(createElement(toDo, id, done));
     // add item to localstorage ( this code must be added where the todoList array is updated)
     localStorage.setItem("TODO", JSON.stringify(todoList));
     id++;
   }
+
+  
 
   //---------------------------------------------
   // add an item to the list user the enter key or press the plus button
