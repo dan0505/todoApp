@@ -15,9 +15,9 @@ body {
   box-shadow: 5px 10px 8px #888888;
   height: 80vh;
   width: 80vw;
-  /* top: 10vh;
-  left: 10vw; */
-  margin: 10vh;
+  top: 10vh;
+  left: 10vw;
+  position: absolute;
   display: grid;
   grid-template-areas: "header content";
   grid-template-columns: 35% 65%;
@@ -77,10 +77,9 @@ li.complete span.text {
   text-decoration: line-through;
 }
 div.buttons {
-  position: -webkit-sticky;
-  position: sticky;
+  position: absolute;
   bottom: 3em;
-  text-align: right;
+  right: 1.5em;
 }
 #clearButton {
   margin: 20px auto auto 20px;
@@ -97,13 +96,11 @@ div.buttons {
   color: white;
 }
 #try-add {
-  right: 30px;
   bottom: 30px;
   background-color: rgba(255, 255, 255, 0.5);
-  border: 2px solid gray;
-  /* border-radius: 20px; */
+  border-radius: 20px;
   border: none;
-  font-size: 1em;
+  font-size: 3em;
   padding: 10px 20px;
   color: #4162f6;
   box-shadow: 5px 10px 8px #888888;
