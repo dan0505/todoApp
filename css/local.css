@@ -78,6 +78,7 @@ li.complete span.text {
   text-decoration: line-through;
 }
 div.buttons {
+  z-index: 10;
   position: absolute;
   bottom: 20px;
   right: 20px;
