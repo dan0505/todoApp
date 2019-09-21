@@ -3,8 +3,8 @@ $(document).ready(function() {
   const clearButton = $("#clearButton");
   const dateDisplay = $("#date");
   const list = $("#todo-list");
-  const input = $("#todo-input");
-  const addButton = $("#add-button");
+  const tryAddButton = $("#try-add");
+  const contentElement = $("#content");
 
   const today = new Date();
   // variables
@@ -71,19 +71,39 @@ $(document).ready(function() {
 
   //---------------------------------------------
   // add an item to the list user the enter key or press the plus button
-  input.keypress(function() {
-    if (event.keyCode == 13) {
-      addButton.trigger("click");
-    }
-  });
 
-  addButton.click(function() {
-    const toDo = input.val();
+  // addButton.click(function() {
+  //   const toDo = input.val();
+  //   // if the input isn't empty
+  //   if (toDo) {
+  //     addToDo(toDo);
+  //   }
+  //   input.val("");
+  // });
+  // $(addButton).on("click", )
+
+  tryAddButton.click(function () {
+    contentElement.append(
+      `<form id="last-todo-form">
+      <input type="text" id="todo-input" name="todo" value="new-todo" placeholder="Add a to-do" />
+      <button type="submit"><i class="fa fa-check" aria-hidden="true" ></i>
+      Update</button>
+    </form>`
+    )
+  })
+
+  $(document).on("submit", "#last-todo-form", function () {
+    console.log("submitted!")
+    // do your things
+    const toDo = $("#todo-input").val();
+    console.log(toDo)
     // if the input isn't empty
     if (toDo) {
+      console.log("add", toDo)
       addToDo(toDo);
     }
-    input.val("");
+    $("#last-todo-form").remove();
+    return false;
   });
 
   // remove to do
@@ -127,14 +147,16 @@ $(document).ready(function() {
   });
 
   $("ul").on("blur", "input.modify", function() {
+    console.log("trigered!");
     $("button.modify").trigger("click");
   });
 
-  $("ul").on("keypress", "input.modify", function() {
-    if (event.keyCode == 13) {
-      $("button.modify").trigger("click");
-    }
-  });
+  // $("ul").on("keypress", "input.modify", function() {
+  //   if (event.keyCode == 13) {
+  //     console.log("triger2")
+  //     $("button.modify").trigger("click");
+  //   }
+  // });
 
   $("ul").on("click", "button.modify", function() {
     console.log(this);

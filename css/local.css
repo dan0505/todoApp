@@ -1,34 +1,31 @@
 :root {
-  --red: #b00;
-  --blue: #00b;
-  --app-width: 380px;
-  --background-color: rgba(0, 0, 0, 0.1);
-  --body-font: "Arial Verdana", Sans-serif;
-  --font-size: font-size: 1rem;
-  --input-color: #4162f6;
   --animation-duration: 0.2s;
 }
 
 body {
-  background-color: var(--background-color);
-  font-family: var(--body-font);
+  background-color: rgba(0, 0, 0, 0.1);
+  font-family: "Arial Verdana", Sans-serif;
+  margin:0;
+  padding:0;
 }
 
 #container {
-  /* position: fixed; */
-  /* max-width: var(--app-width); */
   box-shadow: 5px 10px 8px #888888;
-  height: 600px;
+  height: 80vh;
+  width: 80vw;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-areas: 'header content';
+                        /* 'header todoForm'; */
+  grid-template-columns: 35% 65%;
 }
 
 #header {
-  width: 380px;
-  height: 200px;
-  background-image: url("bg.jpg");
+  grid-area: header;
+  background-image: url("bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -36,13 +33,10 @@ body {
 }
 
 #clearButton {
-  position: absolute;
-  right: 20px;
-  top: 20px;
+  margin: 20px auto auto 20px;
   color: white;
   background-color: rgba(255, 255, 255, 0);
   border: 2px solid white;
-  background-oc-webkit-transition-duration: var(--animation-duration); /* Safari */
   transition-duration: var(--animation-duration);
   font-size: 1em;
   border-radius: 5px;
@@ -59,25 +53,38 @@ body {
   left: 10px;
   color: #fff;
   font-size: 1.5em;
+  overflow: hidden;
 }
 
 /* --- content ------------------------------- */
 #content {
-  height: 40vh;
+  grid-area: content;
   background-color: #fff;
   overflow: auto;
+  position: relative;
 }
-
-#content ul {
+form#last-todo-form{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 5px 10px 8px #888888;
+}
+form#last-todo-form input{
+  border: none;
+  background: 
+}
+ul#todo-list{
   padding: 0;
-  margin: 0;
+  margin:0;
 }
 
 li {
   /* position: relative; */
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   list-style: none;
-  font-size: var(--font-size);
   padding: 10px;
 }
 
@@ -93,21 +100,25 @@ li.complete {
 li.complete span.text {
   text-decoration: line-through;
 }
+#try-add {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid gray;
+  /* border-radius: 20px; */
+  border: none;
+  font-size: 1em;
+  padding: 10px 20px;
+  color: #4162f6;
+  box-shadow: 5px 10px 8px #888888;
+}
 /* ---------------------------------- */
 
 
-/* add todo */
-.add-todo {
-  position: relative;
-  background-color: #fff;
-  padding: 10px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  font-size: var(--font-size);
-  color: var(--input-color);
-}
-.add-todo i{
-  float: right;
-  font-size: 28px;
+/* ------------add todo-------------- */
+/* #todo-form{
+  grid-area: todoForm;
 }
 
 .add-todo input {
@@ -116,7 +127,8 @@ li.complete span.text {
   border: none;
   line-height: 25px;
   font-size: 20px;
-}
+}  */
+/* ---------------------------------- */
 
 
 /* -----annoimate check box-------------------- */
@@ -166,7 +178,6 @@ input[type=checkbox]:checked + label{
 input[type=checkbox] ~ i:not(.fa-check) {
   float: right;
   margin-left: 0.5em;
-  background-oc-webkit-transition-duration: var(--animation-duration); /* Safari */
   transition-duration: var(--animation-duration);
   opacity: 0.3;
 }
@@ -203,7 +214,7 @@ input[type=checkbox]:checked:disabled + label:before {
 
 input.modify {
   margin-left: 1.8em;
-  font-size: var(--font-size);
+  font-size: 1rem;
   border:0.1em solid grey;
   height: 20px;
 }
@@ -216,30 +227,36 @@ i.fa-check {
   margin-left: 0.5em;
   color: green
 }
+footer{
+  color: darkgray;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -90px;
+}
+a{
+  /* text-decoration: none; */
+  color: darkgray;
+}
+
 
 @media only screen and (max-width: 450px){
-  body {
-    background-color: white;
-    /* height: 90vh; */
+  body{
     margin:0;
-    padding: 0;
+    padding:0;
   }
+  
   #container{
-    margin:0;
-    padding: 0;
-    margin-top: 0;
-    width: 100%;
-    height: 100%;
-  }
-  #header {
-    margin:0;
-    padding: 0;
-    width: 100%;
-    height: 20vh;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 'header'
+                        'content';
+    grid-template-rows: 30% 70%;
+    grid-template-columns: 100%;
   }
   #content {
     font-size:1.2rem;
-    height: 70vh;
-    
     }
 }

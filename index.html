@@ -4,10 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="apple-touch-icon" sizes="57x57" href="css/icon/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="css/icon/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="css/icon/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="css/icon/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="css/icon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="css/icon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="css/icon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="css/icon/apple-icon-76x76.png"
+    />
     <link
       rel="apple-touch-icon"
       sizes="114x114"
@@ -39,12 +55,30 @@
       sizes="192x192"
       href="css/icon/android-icon-192x192.png"
     />
-    <link rel="icon" type="image/png" sizes="32x32" href="css/icon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="css/icon/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="css/icon/favicon-16x16.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="css/icon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="css/icon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="css/icon/favicon-16x16.png"
+    />
     <link rel="manifest" href="css/icon/manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="msapplication-TileImage" content="css/icon/ms-icon-144x144.png" />
+    <meta
+      name="msapplication-TileImage"
+      content="css/icon/ms-icon-144x144.png"
+    />
     <meta name="theme-color" content="#ffffff" />
     <title>todo</title>
     <link
@@ -57,18 +91,24 @@
   <body>
     <div id="container">
       <div id="header">
-        <button class="clear" id="clearButton">Clear</button>
+        <!-- <label class="switch">
+          <input type="checkbox" />
+          <span class="slider round"></span>
+        </label> -->
+
         <div id="date"></div>
       </div>
       <div id="content">
         <ul id="todo-list"></ul>
       </div>
-      <div class="add-todo">
-        <input type="text" id="todo-input" placeholder="Add a to-do" />
-        <i class="fa fa-plus" aria-hidden="true" id="add-button"></i>
+      <div class="buttons">
+        <button id="try-add">
+          <i class="fa fa-plus" aria-hidden="true"></i> Add Todo
+        </button>
+        <button class="clear" id="clearButton">Clear</button>
       </div>
     </div>
-    <!-- end of continer -->
+    <footer>&#169; Powered by: <a href="https://danq.io">danq.io</a></footer>
     <script src="./js/main.js"></script>
   </body>
 </html>
