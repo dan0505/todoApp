@@ -13,7 +13,7 @@ body {
   box-shadow: 5px 10px 8px #888888;
   height: 80vh;
   width: 80vw;
-  position: absolute;
+  position: relative;
   /* top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); */
