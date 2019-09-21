@@ -213,7 +213,7 @@ a {
   color: darkgray;
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 600px) {
   #container {
     width: 100vw;
     height: calc(100vh - 20px);
